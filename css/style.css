@@ -1,5 +1,6 @@
 /*
  * global site styles
+ * IMPORTANT: in CSS, the more specific rule takes over!
  */
 
 html, body {
