@@ -61,8 +61,64 @@ hp-chooser {
   align-items: center;
 }
 
+/* Why both parent and child need the class "chosen"?
+ * Well, that's the core of css - cascading stylesheets, meaning that the
+ * child inherits properties from its parent, not vice versa.
+ * Concretely: you cannot manipulate parent, based on child element's change.
+ */
+
+
+ /* CSS animation baseline: 
+  * set initial value for the desired property,
+  * set final value, similarly.
+  */
 hp-chooser * {
   max-width: 20%;
-
   margin: 5% 2.5%;
+  height: 20vmin; /* The elements inside shrink; this keeps the size of the chooser fixed.*/
+}
+
+
+/* Seems exotic? It says that when hp-chooser element is chosen, 
+ * its child element that is chosen, will apply these rules.
+ */
+hp-chooser.chosen>*.chosen {
+  max-width: 30%;
+  animation-name: chosen;
+  animation-duration: .5s; /*Fancy way of writing 0.5*/
+  animation-timing-function: ease-in-out;
+  opacity: 1;
+}
+
+/* Way of controlling the pace of stuff happening.
+ * Keyframes always has initial and final values.
+ */
+@keyframes chosen {
+  from {
+    max-width:  20%;
+  }
+
+  to {
+    max-width: 30%;
+  }
+}
+
+hp-chooser.chosen>*:not(chosen) {
+  max-width: 16.6%;
+  animation-name: unchosen;
+  animation-duration: .5s;
+  animation-timing-function: linear;
+  opacity: .25;
+}
+
+@keyframes unchosen {
+  from {
+    max-width: 20%;
+    opacity: 1;
+  }
+
+  to {
+    max-width: 16.6%;
+    opacity: .25;
+  }
 }
