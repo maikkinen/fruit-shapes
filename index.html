@@ -28,15 +28,29 @@
         </hp-chooser>
         <hp-title>doesn't belong?</hp-title>
       </hp-slide>
-      <hp-slide>
+      <!--HTML wants milliseconds -->
+      <!--Need a custom attribute? 
+          Start name with: data-[your stuff]
+          Custom attributes are always ignored by the browser. -->
+      <hp-slide data-autoadvance="3500">
         <hp-title>Which shape</hp-title>
-        <hp-chooser class="chosen"> <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
+        <hp-chooser class="chosen animate"> <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
           <img src="images/triangle.svg"/>
           <img class="chosen" src="images/circle.svg"/>
           <img src="images/diamond.svg"/>
           <img src="images/square.svg"/>
         </hp-chooser>
         <hp-title>doesn't belong?</hp-title>
+      </hp-slide>
+      <hp-slide>
+        <hp-title>How did</hp-title>
+        <hp-chooser class="chosen"> <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
+          <img src="images/triangle.svg"/>
+          <img class="chosen" src="images/circle.svg"/>
+          <img src="images/diamond.svg"/>
+          <img src="images/square.svg"/>
+        </hp-chooser>
+        <hp-title>you know?</hp-title>
       </hp-slide>
     </hp-presentation>
   </hp-content>
