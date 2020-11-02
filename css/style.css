@@ -75,7 +75,7 @@ hp-chooser {
 hp-chooser * {
   max-width: 20%;
   margin: 5% 2.5%;
-  height: 20vmin; /* Dif */
+  /*height: 20vmin; /* Dif */
   /* The elements inside shrink; this keeps the size of the chooser fixed.*/
 }
 
@@ -111,7 +111,7 @@ hp-chooser.chosen.animate>*.chosen {
   max-width: 30%;
   animation-name: chosen;
   animation-duration: .5s; /*Fancy way of writing 0.5*/
-  animation-timing-function: ease-in-out; /* Dif: ease*/
+  animation-timing-function: ease; /* Dif: ease-in-out*/
   opacity: 1;
 }
 
@@ -182,9 +182,21 @@ hp-learn hp-learn-no, hp-learn hp-learn-yes {
 hp-learn img {
   max-width: 50%;
   transition-property: margin;
+  /* Transition-property works like so, that
+     anytime the value changes, it
+     automatically interpolates between the new value and the initial one. 
+     Basically, a shorthand for a certain type of (simple) animation. 
+   */
   transition-duration: .5s;
 }
+
+hp-learn.match img {
+  margin-top: 5%;
+  margin-right: 14%;
+}
+
 
 hp-learn-no, hp-learn-yes {
   display: none;
 }
+
