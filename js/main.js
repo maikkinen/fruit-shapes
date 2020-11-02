@@ -1,5 +1,8 @@
 window.addEventListener('DOMContentLoaded', function (e) {
-  document.querySelector('hp-presentation').onclick = handlePresentationClick;
+  var presentation = document.querySelector('hp-presentation')
+  
+  presentation.onclick = handlePresentationClick;
+  presentation.addEventListener('animationend', handleAnimationEnd, false);
 });
 
 
@@ -9,6 +12,10 @@ window.addEventListener('DOMContentLoaded', function (e) {
 function handlePresentationClick(e) {
   var current = document.querySelector('hp-slide.active');
   var next = current.nextElementSibling;
+
+function handleAnimationEnd(e) {
+  console.log(e);
+}
 
   /* Manipulating the DOM directly is quite brave.
    * It doesn't hurt to assure that you switch to

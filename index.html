@@ -42,14 +42,23 @@
         </hp-chooser>
         <hp-title>doesn't belong?</hp-title>
       </hp-slide>
-      <hp-slide>
+      <hp-slide data-autoadvance="animationend">
         <hp-title>How did</hp-title>
-        <hp-chooser class="chosen"> <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
+        <hp-chooser class="fixed"> <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
           <img src="images/triangle.svg"/>
           <img class="chosen" src="images/circle.svg"/>
           <img src="images/diamond.svg"/>
           <img src="images/square.svg"/>
         </hp-chooser>
+        <hp-title>you know?</hp-title>
+      </hp-slide>
+      <hp-slide data-autoadvance="2500">
+        <hp-title>How did</hp-title>
+        <hp-learn class="match">
+          <hp-learn-no>no</hp-learn-no>
+          <img src="images/circle.svg"/>
+          <hp-learn-yes>yes</hp-learn-yes>
+          </hp-learn>
         <hp-title>you know?</hp-title>
       </hp-slide>
     </hp-presentation>

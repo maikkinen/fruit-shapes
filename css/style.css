@@ -75,7 +75,12 @@ hp-chooser {
 hp-chooser * {
   max-width: 20%;
   margin: 5% 2.5%;
-  height: 20vmin; /* The elements inside shrink; this keeps the size of the chooser fixed.*/
+  height: 20vmin; /* Dif */
+  /* The elements inside shrink; this keeps the size of the chooser fixed.*/
+}
+
+hp-chooser.fixed {
+  height: auto;
 }
 
 
@@ -86,11 +91,27 @@ hp-chooser.chosen>*.chosen {
   max-width: 30%;
 }
 
+hp-chooser.fixed>*.chosen {
+  max-width: 50%;
+  animation-name: chosen_fixed;
+  animation-duration: .5s;
+}
+
+@keyframes chosen_fixed {
+  from {
+    max-width: 30%;
+  }
+
+  to {
+    max-width: 50%;
+  }
+}
+
 hp-chooser.chosen.animate>*.chosen {
   max-width: 30%;
   animation-name: chosen;
   animation-duration: .5s; /*Fancy way of writing 0.5*/
-  animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out; /* Dif: ease*/
   opacity: 1;
 }
 
@@ -101,7 +122,6 @@ hp-chooser.chosen.animate>*.chosen {
   from {
     max-width:  20%;
   }
-
   to {
     max-width: 30%;
   }
@@ -110,6 +130,22 @@ hp-chooser.chosen.animate>*.chosen {
 hp-chooser.chosen>*:not(.chosen) {
   max-width: 16.6%;
   opacity: .25;
+}
+
+hp-chooser.fixed>*:not(.chosen) {
+  max-width: 0%;
+  opacity: .25;
+  animation-name: unchosen_fixed;
+  animation-duration: .5;
+}
+
+@keyframes unchosen_fixed {
+  from {
+    max-width: 16.6%;
+  }
+  to {
+    max-width: 0%;
+  }
 }
 
 hp-chooser.chosen.animate>*:not(.chosen) {
@@ -121,11 +157,34 @@ hp-chooser.chosen.animate>*:not(.chosen) {
 @keyframes unchosen {
   from {
     max-width: 20%;
-    opacity: 1;
+    opacity: 1.0;
   }
 
   to {
     max-width: 16.6%;
     opacity: .25;
   }
+}
+
+hp-learn {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+hp-learn hp-learn-no, hp-learn hp-learn-yes {
+  max-width: 20%;
+}
+
+hp-learn img {
+  max-width: 50%;
+  transition-property: margin;
+  transition-duration: .5s;
+}
+
+hp-learn-no, hp-learn-yes {
+  display: none;
 }
