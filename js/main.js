@@ -18,7 +18,7 @@ function handlePresentationClick(e) {
    * the righ element :)
    * (According to W. Scott Means, especially larger companies are pecky about this.) 
    */
-  while(next && next.tagName != 'HP-SLIDE') { //yes, all-caps is the correct format for the DOM
+  while (next && next.tagName != 'HP-SLIDE') { //yes, all-caps is the correct format for the DOM
     next = next.nextElementSibling;
   }
 
@@ -27,8 +27,8 @@ function handlePresentationClick(e) {
     next.classList.add('active');
   }
 
-  next.querySelectorAll('.match').forEach(function(el) {
-    setTimetout(function () { el.classList.remove('match');}, 0);
+  next.querySelectorAll('.match').forEach(function (el) {
+    setTimeout(function () { el.classList.remove('match'); }, 0);
   })
   var autoAdvance = parseInt(next.getAttribute('data-autoadvance'));
 
@@ -36,6 +36,13 @@ function handlePresentationClick(e) {
     setTimeout(function (e) {
       handlePresentationClick(e);
     }, autoAdvance);
+  }
+
+  // getAttribute refers to DOM elementsä attributes.
+  var onShowAnimation = next.getAttribute('data-onshow')
+
+  if (onShowAnimation) {
+    window[onShowAnimation]();
   }
 }
 
@@ -50,4 +57,34 @@ function handleAnimationEnd(e) {
   if (autoAdvance == 'animationend' && slide.classList.contains('active')) {
     handlePresentationClick(e);
   }
+}
+
+function setLearnImage(imageName) {
+
+  var img = document.querySelector('hp-slide.active hp-learn img ') //goes down the element tree and looks for the param
+
+  img.src = 'images/' + imageName + '.svg' //changes the img element's src image :) 
+}
+
+var shapes = ['circle', 'diamond', 'triangle', 'square']
+
+function showLearning() {
+  var imageIndex = Math.floor(Math.random() * shapes.length);
+  setLearnImage(shapes[imageIndex])
+
+
+  // this syntax doesn't apply any new css styles to the
+  // yes/no text - those stay hidden, what so ever.
+  // Is the hp-slide the correct place to be? Should we remove
+  // the names from the hp-learn level?
+  var slide = document.querySelector('hp-slide.active');
+  slide.classList.remove('learn-yes');
+  slide.classList.remove('learn-no');
+  slide.classList.add(imageIndex ? 'learn-no' : 'learn-yes'); //zero is 'falsy'!
+  //By adding classNames to the classlist, we can dynamically change
+  //what css rules apply to the element.
+}
+
+function runLearningSequence() {
+  showLearning();
 }

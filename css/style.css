@@ -197,6 +197,31 @@ hp-learn.match img {
 
 
 hp-learn-no, hp-learn-yes {
-  display: none;
+  visibility: hidden; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
+}
+
+.learn-yes hp-learn-yes {
+  visibility: 'visible';
+  color: '#5ce665';
+}
+
+.learn-no hp-learn-no {
+  visibility: 'visible';
+  color: '#e65c5c'
+}
+
+#tfo hp-learn {
+  opacity: 0;
+  animation-name: tfo;
+  animation-duration: 2s;
+}
+
+@keyframes tfo {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
 
