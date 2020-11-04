@@ -1,5 +1,5 @@
 # fruit-shapes
-My sweet mini app to learn CSS animations, based on Scott W. Mean's course Interactive Animations with CSS and JavaScript.
+My sweet mini app to learn CSS animations, based on W. Scott Mean's course Interactive Animations with CSS and JavaScript.
 
 As I'm done with the functionalities, the next step will be to replace the geometric shapes with similar fruit svg (animations) - hence the name.
 
