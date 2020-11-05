@@ -54,6 +54,7 @@ hp-slide {
 hp-chooser {
   display: flex;
   width: 100%;
+  height: 20vimn;
 
   flex-direction: row;
   flex-wrap: nowrap;
@@ -108,11 +109,11 @@ hp-chooser.fixed>*.chosen {
 }
 
 hp-chooser.chosen.animate>*.chosen {
-  max-width: 30%;
+  /*max-width: 30%;*/
   animation-name: chosen;
   animation-duration: .5s; /*Fancy way of writing 0.5*/
   animation-timing-function: ease; /* Dif: ease-in-out*/
-  opacity: 1;
+  /*opacity: 1;*/
 }
 
 /* Way of controlling the pace of stuff happening.
@@ -197,20 +198,21 @@ hp-learn.match img {
 
 
 hp-learn-no, hp-learn-yes {
-  visibility: hidden; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
+  visibility: visible; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
+  color: rebeccapurple;
 }
 
 .learn-yes hp-learn-yes {
-  visibility: 'visible';
-  color: '#5ce665';
+  visibility: visible;
+  color: #5ce665;
 }
 
 .learn-no hp-learn-no {
-  visibility: 'visible';
-  color: '#e65c5c'
+  visibility: visible;
+  color: #e65c5c;
 }
 
-#tfo hp-learn {
+#tfo hp-title {
   opacity: 0;
   animation-name: tfo;
   animation-duration: 2s;
@@ -218,7 +220,7 @@ hp-learn-no, hp-learn-yes {
 
 @keyframes tfo {
   from {
-    opacity: 1;
+    opacity: 1.0;
   }
   to {
     opacity: 0;

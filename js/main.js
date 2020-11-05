@@ -85,6 +85,20 @@ function showLearning() {
   //what css rules apply to the element.
 }
 
-function runLearningSequence() {
+function startLearning(learningDelay) {
   showLearning();
+
+  setTimeout(function () {
+    if (learningDelay > 1.1) {
+      showLearning();
+
+      learningDelay = Math.pow(learningDelay, 1 / 1.05);
+      startLearning(learningDelay);
+    }
+  }, learningDelay);
+}
+
+function runLearningSequence() {
+  startLearning(1500) //milliseconds
+  //showLearning();
 }
