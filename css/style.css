@@ -198,8 +198,8 @@ hp-learn.match img {
 
 
 hp-learn-no, hp-learn-yes {
-  visibility: visible; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
-  color: rebeccapurple;
+  visibility: hidden; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
+  /* color: rebeccapurple; */
 }
 
 .learn-yes hp-learn-yes {
