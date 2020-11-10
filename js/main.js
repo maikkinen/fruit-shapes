@@ -9,13 +9,6 @@ function handlePresentationClick(e) {
   var current = document.querySelector('hp-slide.active');
   var next = current.nextElementSibling;
 
-  // Sandboxing
-  const s = '{person: "Kimi", suit: "Gorilla"}';
-  const o = JSON.parse(s);
-  console.log(o.person);
-  console.log(o.suit);
-  //
-
   if (next) {
     current.classList.remove('active');
     next.classList.add('active');
