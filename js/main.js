@@ -5,9 +5,21 @@ window.addEventListener('DOMContentLoaded', function (e) {
   presentation.addEventListener('animationend', handleAnimationEnd, false);
 });
 
+/* The nextElementSibling property returns the element
+ * immediately following the specified element, in the same tree level. */
+
 function handlePresentationClick(e) {
   var current = document.querySelector('hp-slide.active');
   var next = current.nextElementSibling;
+
+  /* Manipulating the DOM directly is quite brave.
+   * It doesn't hurt to assure that you switch to
+   * the righ element :)
+   * (According to W. Scott Means, especially larger companies are pecky about this.) 
+   */
+  while (next && next.tagName != 'HP-SLIDE') { //yes, all-caps is the correct format for the DOM
+    next = next.nextElementSibling;
+  }
 
   if (next) {
     current.classList.remove('active');
@@ -25,6 +37,8 @@ function handlePresentationClick(e) {
       }, aa);
     }
 
+    // getAttribute refers to DOM elements' attributes.
+    // osa stands for on show animation
     var osa = next.getAttribute('data-onshow');
     if (osa) {
       window[osa]();
@@ -34,6 +48,10 @@ function handlePresentationClick(e) {
 
 function handleAnimationEnd(e) {
   var slide = e.target.closest('hp-slide');
+  /* 'closest' is a function that walks up the parent chain in the DOM 
+   * and looks for the closest parent element that has the tag
+   * that matches to the function's parameter.
+   */
   var aa = slide.getAttribute('data-autoadvance');
 
   if (aa == 'animationend' && slide.classList.contains('active')) {
@@ -42,9 +60,10 @@ function handleAnimationEnd(e) {
 }
 
 function setLearnImage(imageName) {
+   //goes down the element tree and looks for the param
   var img = document.querySelector('hp-slide.active hp-learn img');
 
-  if (img) {
+  if (img) { //changes the img element's src image :) 
     img.src = 'images/' + imageName + '.svg';
   }
 }
@@ -58,7 +77,9 @@ function showLearning() {
   var slide = document.querySelector('hp-slide.active');
   slide.classList.remove('learn-yes');
   slide.classList.remove('learn-no');
-  slide.classList.add(ii ? 'learn-no' : 'learn-yes');
+  slide.classList.add(ii ? 'learn-no' : 'learn-yes'); //zero is 'falsy'!
+  //By adding classNames to the classlist, we can dynamically change
+  //what css rules apply to the element.
 }
 
 function startLearning(learningDelay) {
