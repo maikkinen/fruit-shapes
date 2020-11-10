@@ -8,6 +8,10 @@ html, body {
   padding: 0;
 }
 
+.hidden {
+  display: none;
+}
+
 hp-content {
   display: flex;
 
@@ -23,7 +27,7 @@ hp-presentation>hp-slide {
 }
 
 hp-presentation>hp-slide.active {
-  display: inline-block;
+  display: flex;
 }
 
 hp-presentation {
@@ -38,7 +42,10 @@ hp-presentation {
 }
 
 hp-slide {
-  display: inline-block;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-content: center;
 
   width: 80%;
   height: 80%;
@@ -204,7 +211,7 @@ hp-learn-no, hp-learn-yes {
 
 .learn-yes hp-learn-yes {
   visibility: visible;
-  color: #5ce665;
+  color: hsl(122, 14%, 40%);
 }
 
 .learn-no hp-learn-no {
@@ -227,3 +234,11 @@ hp-learn-no, hp-learn-yes {
   }
 }
 
+/* The rules apply to 'path' elements - 
+ * corresponding to a regular html tag.
+ */
+path {
+  fill: none;
+  stroke: hsl(122, 14%, 40%);
+  stroke-width: 1.5vmin;
+}
