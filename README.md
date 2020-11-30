@@ -1,5 +1,5 @@
 # fruit-shapes
-A sweet mini app to learn CSS animations, based on W. Scott Mean's course Interactive Animations with CSS and JavaScript.
+A sweet app to learn CSS animations, based on W. Scott Mean's course Interactive Animations with CSS and JavaScript.
 
 Despite it's size, the app has an ambitious goal: it demonstrates how machine learning (algorithm) works.
 The app visualizes the critical steps:
@@ -8,7 +8,7 @@ The app visualizes the critical steps:
   3. through (several) examples, it "learns" to recognize patterns
 
 - - - -  - - - -
-The course is available e.g. on LinkedinLearning, and I do recommend it - even if the outcome is rather simple, Scott mentions
+The course is available e.g. on LinkedinLearning, and I do recommend it - even if the outcome is not super complex, Scott mentions
 many things as "nice to know facts", but such "sidenotes" deepened my understanding on HTML5, JS and CSS and even bridged a couple of blind spots.
 
 As I'm done with the functionalities, the next step will be to replace the geometric shapes with similar fruit svg (animations) - hence the name.
