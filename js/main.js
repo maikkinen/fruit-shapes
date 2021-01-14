@@ -119,6 +119,6 @@ function animateSVGStep() {
 
 function animateSVG() {
   if (animateSVGStep()) {
-    setTimeout(animateSVG, 600);
+    setTimeout(animateSVG, 400); //tweak timeout val (ms)
   }
 }
