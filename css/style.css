@@ -3,9 +3,13 @@
  * IMPORTANT: in CSS, the more specific rule takes over!
  */
 
+ @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;1,100&display=swap');
+
 html, body {
   margin: 0;
   padding: 0;
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
 }
 
 .hidden {
@@ -37,8 +41,8 @@ hp-presentation {
   width: 80vmin;
   height: 80vmin;
 
-  border: .2em solid #000;
-  border-radius: 1em;
+  /* border: .2em solid #000;
+  border-radius: 1em; */
 }
 
 hp-slide {
@@ -53,8 +57,6 @@ hp-slide {
   margin: 10%;
 
   font-size: 8vmin;
-  font-weight: bold;
-  font-family: sans-serif;
   text-align: center;
 }
 
@@ -207,6 +209,8 @@ hp-learn.match img {
 hp-learn-no, hp-learn-yes {
   visibility: hidden; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
   /* color: rebeccapurple; */
+  font-style: italic;
+
 }
 
 .learn-yes hp-learn-yes {
@@ -240,5 +244,4 @@ hp-learn-no, hp-learn-yes {
 path {
   fill: none;
   stroke: hsl(122, 14%, 40%);
-  stroke-width: 1.5vmin;
 }

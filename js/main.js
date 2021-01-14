@@ -68,7 +68,7 @@ function setLearnImage(imageName) {
   }
 }
 
-var shapes = ['circle', 'diamond', 'square', 'triangle'];
+var shapes = ['Starfruit', 'Kiwi', 'Pitahaya', 'Orange'];
 
 function showLearning() {
   var ii = Math.floor(Math.random() * shapes.length);
@@ -119,6 +119,6 @@ function animateSVGStep() {
 
 function animateSVG() {
   if (animateSVGStep()) {
-    setTimeout(animateSVG, 30);
+    setTimeout(animateSVG, 600);
   }
 }
