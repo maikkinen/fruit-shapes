@@ -3,245 +3,38 @@
  * IMPORTANT: in CSS, the more specific rule takes over!
  */
 
- @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;1,100&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,100;1,100&display=swap');
 html, body {
   margin: 0;
   padding: 0;
   font-family: 'Fraunces', serif;
-  font-size: 18px;
 }
 
-.hidden {
-  display: none;
+h2 {
+  font-size: 3rem;
 }
 
-hp-content {
-  display: flex;
-
-  width: 100vw;
-  height: 100vh;
-
-  justify-content: center;
-  align-items: center;
-}
-
-hp-presentation>hp-slide {
-  display: none;
-}
-
-hp-presentation>hp-slide.active {
-  display: flex;
-}
-
-hp-presentation {
-  display: block;
-  background-color: #fff;
-
-  width: 80vmin;
-  height: 80vmin;
-
-  /* border: .2em solid #000;
-  border-radius: 1em; */
-}
-
-hp-slide {
+.content {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  align-content: center;
-
-  width: 80%;
-  height: 80%;
-
-  margin: 10%;
-
-  font-size: 8vmin;
-  text-align: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background: rgb(159,159,159);
+  background: linear-gradient(0deg, rgba(159,159,159,1) 0%, rgba(227,209,219,1) 8%, rgba(251,255,248,0.6148174157303371) 15%);  
 }
 
-hp-chooser {
+.fruits {
   display: flex;
-  width: 100%;
-  height: 20vimn;
-
+  width: 65%;
+  height: 45vh;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-around;
   align-items: center;
 }
 
-/* Why both parent and child need the class "chosen"?
- * Well, that's the core of css - cascading stylesheets, meaning that the
- * child inherits properties from its parent, not vice versa.
- * Concretely: you cannot manipulate parent, based on child element's change.
- */
-
-
- /* CSS animation baseline: 
-  * set initial value for the desired property,
-  * set final value, similarly.
-  */
-hp-chooser * {
-  max-width: 20%;
-  margin: 5% 2.5%;
-  /*height: 20vmin; /* Dif */
-  /* The elements inside shrink; this keeps the size of the chooser fixed.*/
-}
-
-hp-chooser.fixed {
-  height: auto;
-}
-
-
-/* Seems exotic? It says that when hp-chooser element is chosen, 
- * its child element that is chosen, will apply these rules.
- */
-hp-chooser.chosen>*.chosen {
-  max-width: 30%;
-}
-
-hp-chooser.fixed>*.chosen {
-  max-width: 50%;
-  animation-name: chosen_fixed;
-  animation-duration: .5s;
-}
-
-@keyframes chosen_fixed {
-  from {
-    max-width: 30%;
-  }
-
-  to {
-    max-width: 50%;
-  }
-}
-
-hp-chooser.chosen.animate>*.chosen {
-  /*max-width: 30%;*/
-  animation-name: chosen;
-  animation-duration: .5s; /*Fancy way of writing 0.5*/
-  animation-timing-function: ease; /* Dif: ease-in-out*/
-  /*opacity: 1;*/
-}
-
-/* Way of controlling the pace of stuff happening.
- * Keyframes always has initial and final values.
- */
-@keyframes chosen {
-  from {
-    max-width:  20%;
-  }
-  to {
-    max-width: 30%;
-  }
-}
-
-hp-chooser.chosen>*:not(.chosen) {
-  max-width: 16.6%;
-  opacity: .25;
-}
-
-hp-chooser.fixed>*:not(.chosen) {
-  max-width: 0%;
-  opacity: .25;
-  animation-name: unchosen_fixed;
-  animation-duration: .5;
-}
-
-@keyframes unchosen_fixed {
-  from {
-    max-width: 16.6%;
-  }
-  to {
-    max-width: 0%;
-  }
-}
-
-hp-chooser.chosen.animate>*:not(.chosen) {
-  animation-name: unchosen;
-  animation-duration: .5s;
-  animation-timing-function: linear;
-}
-
-@keyframes unchosen {
-  from {
-    max-width: 20%;
-    opacity: 1.0;
-  }
-
-  to {
-    max-width: 16.6%;
-    opacity: .25;
-  }
-}
-
-hp-learn {
-  width: 100%;
-  height: auto;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-}
-
-hp-learn hp-learn-no, hp-learn hp-learn-yes {
-  max-width: 20%;
-}
-
-hp-learn img {
-  max-width: 50%;
-  transition-property: margin;
-  /* Transition-property works like so, that
-     anytime the value changes, it
-     automatically interpolates between the new value and the initial one. 
-     Basically, a shorthand for a certain type of (simple) animation. 
-   */
-  transition-duration: .5s;
-}
-
-hp-learn.match img {
-  margin-top: 5%;
-  margin-right: 14%;
-}
-
-
-hp-learn-no, hp-learn-yes {
-  visibility: hidden; /* visibility: none = element has been removed from the DOM...but now, with hidden, it is still there.*/
-  /* color: rebeccapurple; */
-  font-style: italic;
-
-}
-
-.learn-yes hp-learn-yes {
-  visibility: visible;
-  color: hsl(122, 14%, 40%);
-}
-
-.learn-no hp-learn-no {
-  visibility: visible;
-  color: #e65c5c;
-}
-
-#tfo hp-title {
-  opacity: 0;
-  animation-name: tfo;
-  animation-duration: 2s;
-}
-
-@keyframes tfo {
-  from {
-    opacity: 1.0;
-  }
-  to {
-    opacity: 0;
-  }
-}
-
-/* The rules apply to 'path' elements - 
- * corresponding to a regular html tag.
- */
-path {
-  fill: none;
-  stroke: hsl(122, 14%, 40%);
+.fruit {
+  margin: 0.25rem;
 }

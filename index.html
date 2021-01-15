@@ -4,14 +4,14 @@
   <head>
     <meta charset="utf-8" />
 
-    <title>Machine Learning in Demo</title>
+    <title>Juicy Fruits</title>
     <meta
       name="description"
-      content="The colordul fruits demonstrate how a ML algorithm works. Created with JS and CSS, though."
+      content="Vivid colorful fruits."
     />
     <meta name="author" content="Mai" />
-
-    <link rel="stylesheet" href="css/style.css?v=1.0"/>
+    <link rel="stylesheet" href="css/style.css?v=1.0" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.6.0/gsap.min.js"></script>
     <!--Learned it the hard way: 
         If css doesn't work (feels as if browser wouldn't refresh, though you DO refresh it - )
         Doublecheck that the linking (above) is 100% correct.
@@ -23,129 +23,17 @@
   </head>
 
   <body>
-    <hp-content>
-      <hp-presentation>
-        <hp-slide class="active">
-          <!-- A handy way of hiding / showing things, ie. animations.-->
-          <hp-title>Which shape</hp-title>
-          <hp-chooser>
-            <img src="images/Kiwi.svg" />
-            <img src="images/Starfruit.svg" />
-            <img src="images/Pitahaya.svg" />
-            <img src="images/Orange.svg" />
-          </hp-chooser>
-          <hp-title>doesn't belong?</hp-title>
-        </hp-slide>
-        <!--HTML wants milliseconds -->
-        <!--Need a custom attribute? 
-          Start name with: data-[your stuff]
-          Custom attributes are always ignored by the browser. -->
-        <hp-slide data-autoadvance="3500">
-          <hp-title>Which shape</hp-title>
-          <hp-chooser class="chosen animate">
-            <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
-            <img src="images/Kiwi.svg" />
-            <img class="chosen" src="images/Starfruit.svg" />
-            <img src="images/Pitahaya.svg" />
-            <img src="images/Orange.svg" />
-          </hp-chooser>
-          <hp-title>doesn't belong?</hp-title>
-        </hp-slide>
 
-        <hp-slide data-autoadvance="animationend">
-          <hp-title>How did</hp-title>
-          <hp-chooser class="fixed">
-            <!--Why both parent and child need the class "chosen"? Check CSS file at this class. -->
-            <img src="images/Kiwi.svg" />
-            <img class="chosen" src="images/Starfruit.svg" />
-            <img src="images/Pitahaya.svg" />
-            <img src="images/Orange.svg" />
-          </hp-chooser>
-          <hp-title>you know?</hp-title>
-        </hp-slide>
+    <div class="content">
+          <h2>Pick Your Fruit</h2>
+          <div class="fruits">
+            <img id="kiwi" class="fruit" src="images/Kiwi.svg"/>
+            <img id="starfruit" class="fruit" src="images/Starfruit.svg" />
+            <img id="pitahaya" class="fruit" src="images/Pitahaya.svg" />
+            <img id="orange" class="fruit" src="images/Orange.svg" />
+          </div>
+    </div>
 
-        <hp-slide data-autoadvance="1500">
-          <hp-title>How did</hp-title>
-          <hp-learn class="match">
-            <hp-learn-no>no</hp-learn-no>
-            <img src="images/Starfruit.svg" />
-            <hp-learn-yes>yes</hp-learn-yes>
-          </hp-learn>
-          <hp-title>you know?</hp-title>
-        </hp-slide>
-
-        <hp-slide id="tfo" data-autoadvance="animationend">
-          <hp-title>How did</hp-title>
-          <hp-learn>
-            <hp-learn-no>no</hp-learn-no>
-            <img src="images/Starfruit.svg" />
-            <hp-learn-yes>yes</hp-learn-yes>
-          </hp-learn>
-          <hp-title>you know?</hp-title>
-        </hp-slide>
-
-        <hp-slide data-autoadvance="1500">
-          <hp-title>Answer: you</hp-title>
-          <hp-learn>
-            <hp-learn-no>no</hp-learn-no>
-            <img src="images/Starfruit.svg" />
-            <hp-learn-yes>yes</hp-learn-yes>
-          </hp-learn>
-          <hp-title>learned.</hp-title>
-        </hp-slide>
-
-        <!--this attribute points to a  js function! -->
-        <hp-slide data-onshow="runLearningSequence" data-autoadvance="8000">
-          <hp-title>Answer: you</hp-title>
-          <hp-learn>
-            <hp-learn-no>no</hp-learn-no>
-            <img src="images/Starfruit.svg" />
-            <hp-learn-yes>yes</hp-learn-yes>
-          </hp-learn>
-          <hp-title>learned.</hp-title>
-        </hp-slide>
-        <!--not the most hc way of doing this - but it proves the point,
-        that svg is actually an XML dialect - meaning that it has a DOM -->
-        <!--
-              Whenever you see 'style' attribute in use, be concerned about your css;
-              namely, style attribute always overrider css.
-
-            -->
-        <hp-slide data-onshow="animateSVG">
-          <svg
-            class="hidden"
-            width="100%"
-            height="100%"
-            viewBox="0 0 135.766 111.083"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xml:space="preserve"
-            xmlns:serif="http://www.serif.com/"
-            style="
-              font-size: 40px;
-              fill: #231f20;
-              font-family: BaskOldFace, Baskerville Old Face;"
-          >
-          <text transform="translate(0 44.17529)">the end.</text></svg>
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 135.766 111.083"
-            version="1.1"
-            xmlns="http://www.w3.org/2000/svg"
-            xmlns:xlink="http://www.w3.org/1999/xlink"
-            xml:space="preserve"
-            xmlns:serif="http://www.serif.com/"
-            style="
-              font-size: 40px;
-              fill: #231f20;
-              font-family: BaskOldFace, Baskerville Old Face;"
-          >
-        </svg>
-        </hp-slide>
-      </hp-presentation>
-    </hp-content>
     <script src="js/main.js"></script>
   </body>
 </html>
