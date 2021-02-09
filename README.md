@@ -14,8 +14,6 @@ The app visualizes the main steps:
 
 Both code & SVG art self-made.
 
-The spinoff is a mini app to practice GSAP animations.
-
 - - - - - - - -
 
 The spin-off version has the same original structure and layout - other than that, it's very different. The animations have been built with JavaScript and GSAP. 
