@@ -1,8 +1,8 @@
 # fruit-shapes
 Two fruity apps:
 
-a) The 'original one', made with raw CSS/HTML : https://fruit-ml-demo.netlify.app/ and 
-b) a spin-off, which uses GSAP for more bouncy animations: https://juicy-fruits.netlify.app/
+  1. The 'original one', made with raw CSS/HTML : https://fruit-ml-demo.netlify.app/ and 
+  2. the spin-off, which uses GSAP for more bouncy animations: https://juicy-fruits.netlify.app/
 
 Despite it's size, the original app has an ambitious goal: to demonstrate how machine learning (algorithm) works.
 
