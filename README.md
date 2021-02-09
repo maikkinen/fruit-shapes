@@ -2,7 +2,7 @@
 Two fruity apps:
 
 a) The 'original one', made with raw CSS/HTML : https://fruit-ml-demo.netlify.app/ and 
-b) a spin-off, which uses GSAP for more bouncy animations: https://juicy-fruits.netlify.app/ (in-progress)
+b) a spin-off, which uses GSAP for more bouncy animations: https://juicy-fruits.netlify.app/
 
 Despite it's size, the original app has an ambitious goal: to demonstrate how machine learning (algorithm) works.
 
@@ -13,6 +13,8 @@ The app visualizes the main steps:
   4. learns to "recognize" meaningful things from images.
 
 Both code & SVG art self-made.
+
+The spinoff is a mini app to practice GSAP animations.
 
 - - - - - - - -
 
